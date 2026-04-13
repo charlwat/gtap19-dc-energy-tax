@@ -1,0 +1,7 @@
+
+-O1
+
+@gfortran_1_common.fig
+
+-I"C:\GP\includes" 
+-I"C:\GP\modules" 

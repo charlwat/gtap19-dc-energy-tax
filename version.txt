@@ -1,0 +1,65 @@
+GTAP-E: Energy-environmental extension of GTAP
+
+version 6-pre2b:
+*   homogeneously closable
+*   tax revenue equations corrected
+*   tax variables retained
+
+
+1.	THEORETICAL STRUCTURE
+
+The initial implementation is documented in GTAP Technical Paper No. 16, "GTAP-E: An Energy-Environmental Version of the GTAP Model" by Jean-Marc Burniaux and Truong P. Truong, revised version, January 2002.
+
+GTAP-E extends the standard GTAP theoretical structure with inter-fuel and energy-capital substitution in production, carbon dioxide emission accounting, carbon taxation, and emission trading.
+
+The current version, release 6-pre2, is taken from ongoing work by Alla Golub and Robert McDougall.  It provides bug fixes, simplifications, a more complete representation of technological change, and resynchronization with standard model release 6.2.
+
+
+2.	DATA BASE
+
+The data base derives from standard data base release 8.0.  Extensions to the parameters file cover substitution in production and consumption, and emission trading.  Extensions to the data file cover carbon dioxide emissions, emission quotas, and carbon taxation.
+
+
+2.1	Regions
+
+Africa
+CANADA
+Caribbean
+CHINA
+East Asia
+Eastern Europe
+GERMANY
+JAPAN
+KUWAIT
+Oceania
+QATAR
+RoE
+RoNA
+RoW
+RUSSIA
+SAUDI ARABIA
+SCA
+South Asia
+UK
+USA
+West Asia
+Western Europe
+
+
+2.2	Sectors
+
+Agriculture
+Business
+Coal
+Forestry
+Gas
+Manufacture
+Metals
+Oil
+Other
+Electricity
+Gas
+Oil_pcts
+Trade
+Transport
+Services

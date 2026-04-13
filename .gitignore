@@ -1,0 +1,25 @@
+# Large GEMPACK executables
+*.exe
+
+# Log files
+*.log
+*.LOG
+
+# Backup files
+*.bak
+
+# Temporary/intermediate files
+gpxx*.log
+*.sol
+
+# Large CSV extracts
+ev_results.csv
+base_vdfa.csv
+upd_vdfa.csv
+base_vout.csv
+income_results.csv
+incomeev.csv
+base_save.csv
+upd_save.csv
+base_income.csv
+income_fy.csv
