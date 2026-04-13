@@ -1,0 +1,198 @@
+verbal description = "Energy tax on datacenter sector - 10pct shock (crypto-to-DC + EU + hubs) on energy inputs to Information";
+file GTAPSETS = sets.har ;
+file GTAPDATA = basedata.har ;
+file GTAPPARM = default.prm ;
+Updated file GTAPDATA = dc_etax_10pct.upd ;
+Method = Gragg;
+Steps = 2 4 6 ;
+subintervals = 4 ;
+start with mmnz = 15071024 ;
+Exogenous
+  pop psaveslack pfactwld profitslack incomeslack endwslack
+  cgdslack tradslack ams atm atf ats atd
+  aosec aoreg aoall afall afcom afsec afreg
+  au dppriv dpgov dpsave
+  to tp tm tms tx txs
+  tfd tfm tgd tgm tpd tpm
+  del_ctgshr
+  pemp
+  RCTAXB
+  qo(ENDW_COMM,REG) ;
+Rest Endogenous ;
+
+! ============================================================
+! DATACENTER ENERGY TAX EXPERIMENT
+! 5% tax on energy inputs (domestic + imported) to Information
+! sector in EU member states + major datacenter hub countries
+! Energy inputs: Electricity, Coal, Oil, Gas, Oil_Pcts
+! ============================================================
+
+! --- EU member states ---
+! Electricity input tax (domestic purchases)
+shock tfd("Electricity","Information","AUT") = 10.0 ;
+shock tfd("Electricity","Information","BEL") = 10.0 ;
+shock tfd("Electricity","Information","BGR") = 10.0 ;
+shock tfd("Electricity","Information","HRV") = 10.0 ;
+shock tfd("Electricity","Information","CYP") = 10.0 ;
+shock tfd("Electricity","Information","CZE") = 10.0 ;
+shock tfd("Electricity","Information","DNK") = 10.0 ;
+shock tfd("Electricity","Information","EST") = 10.0 ;
+shock tfd("Electricity","Information","FIN") = 10.0 ;
+shock tfd("Electricity","Information","FRA") = 10.0 ;
+shock tfd("Electricity","Information","DEU") = 10.0 ;
+shock tfd("Electricity","Information","GRC") = 10.0 ;
+shock tfd("Electricity","Information","HUN") = 10.0 ;
+shock tfd("Electricity","Information","IRL") = 10.0 ;
+shock tfd("Electricity","Information","ITA") = 10.0 ;
+shock tfd("Electricity","Information","LVA") = 10.0 ;
+shock tfd("Electricity","Information","LTU") = 10.0 ;
+shock tfd("Electricity","Information","LUX") = 10.0 ;
+shock tfd("Electricity","Information","MLT") = 10.0 ;
+shock tfd("Electricity","Information","NLD") = 10.0 ;
+shock tfd("Electricity","Information","POL") = 10.0 ;
+shock tfd("Electricity","Information","PRT") = 10.0 ;
+shock tfd("Electricity","Information","ROU") = 10.0 ;
+shock tfd("Electricity","Information","SVK") = 10.0 ;
+shock tfd("Electricity","Information","SVN") = 10.0 ;
+shock tfd("Electricity","Information","ESP") = 10.0 ;
+shock tfd("Electricity","Information","SWE") = 10.0 ;
+
+! Electricity input tax (imported purchases)
+shock tfm("Electricity","Information","AUT") = 10.0 ;
+shock tfm("Electricity","Information","BEL") = 10.0 ;
+shock tfm("Electricity","Information","BGR") = 10.0 ;
+shock tfm("Electricity","Information","HRV") = 10.0 ;
+shock tfm("Electricity","Information","CYP") = 10.0 ;
+shock tfm("Electricity","Information","CZE") = 10.0 ;
+shock tfm("Electricity","Information","DNK") = 10.0 ;
+shock tfm("Electricity","Information","EST") = 10.0 ;
+shock tfm("Electricity","Information","FIN") = 10.0 ;
+shock tfm("Electricity","Information","FRA") = 10.0 ;
+shock tfm("Electricity","Information","DEU") = 10.0 ;
+shock tfm("Electricity","Information","GRC") = 10.0 ;
+shock tfm("Electricity","Information","HUN") = 10.0 ;
+shock tfm("Electricity","Information","IRL") = 10.0 ;
+shock tfm("Electricity","Information","ITA") = 10.0 ;
+shock tfm("Electricity","Information","LVA") = 10.0 ;
+shock tfm("Electricity","Information","LTU") = 10.0 ;
+shock tfm("Electricity","Information","LUX") = 10.0 ;
+shock tfm("Electricity","Information","MLT") = 10.0 ;
+shock tfm("Electricity","Information","NLD") = 10.0 ;
+shock tfm("Electricity","Information","POL") = 10.0 ;
+shock tfm("Electricity","Information","PRT") = 10.0 ;
+shock tfm("Electricity","Information","ROU") = 10.0 ;
+shock tfm("Electricity","Information","SVK") = 10.0 ;
+shock tfm("Electricity","Information","SVN") = 10.0 ;
+shock tfm("Electricity","Information","ESP") = 10.0 ;
+shock tfm("Electricity","Information","SWE") = 10.0 ;
+
+! --- Other fossil fuel inputs to Information (domestic) - EU ---
+! Oil_Pcts (diesel for backup generators, cooling)
+shock tfd("Oil_Pcts","Information","AUT") = 10.0 ;
+shock tfd("Oil_Pcts","Information","BEL") = 10.0 ;
+shock tfd("Oil_Pcts","Information","BGR") = 10.0 ;
+shock tfd("Oil_Pcts","Information","HRV") = 10.0 ;
+shock tfd("Oil_Pcts","Information","CYP") = 10.0 ;
+shock tfd("Oil_Pcts","Information","CZE") = 10.0 ;
+shock tfd("Oil_Pcts","Information","DNK") = 10.0 ;
+shock tfd("Oil_Pcts","Information","EST") = 10.0 ;
+shock tfd("Oil_Pcts","Information","FIN") = 10.0 ;
+shock tfd("Oil_Pcts","Information","FRA") = 10.0 ;
+shock tfd("Oil_Pcts","Information","DEU") = 10.0 ;
+shock tfd("Oil_Pcts","Information","GRC") = 10.0 ;
+shock tfd("Oil_Pcts","Information","HUN") = 10.0 ;
+shock tfd("Oil_Pcts","Information","IRL") = 10.0 ;
+shock tfd("Oil_Pcts","Information","ITA") = 10.0 ;
+shock tfd("Oil_Pcts","Information","LVA") = 10.0 ;
+shock tfd("Oil_Pcts","Information","LTU") = 10.0 ;
+shock tfd("Oil_Pcts","Information","LUX") = 10.0 ;
+shock tfd("Oil_Pcts","Information","MLT") = 10.0 ;
+shock tfd("Oil_Pcts","Information","NLD") = 10.0 ;
+shock tfd("Oil_Pcts","Information","POL") = 10.0 ;
+shock tfd("Oil_Pcts","Information","PRT") = 10.0 ;
+shock tfd("Oil_Pcts","Information","ROU") = 10.0 ;
+shock tfd("Oil_Pcts","Information","SVK") = 10.0 ;
+shock tfd("Oil_Pcts","Information","SVN") = 10.0 ;
+shock tfd("Oil_Pcts","Information","ESP") = 10.0 ;
+shock tfd("Oil_Pcts","Information","SWE") = 10.0 ;
+
+! Gas (natural gas for cooling/power)
+shock tfd("Gas","Information","AUT") = 10.0 ;
+shock tfd("Gas","Information","BEL") = 10.0 ;
+shock tfd("Gas","Information","BGR") = 10.0 ;
+shock tfd("Gas","Information","HRV") = 10.0 ;
+shock tfd("Gas","Information","CYP") = 10.0 ;
+shock tfd("Gas","Information","CZE") = 10.0 ;
+shock tfd("Gas","Information","DNK") = 10.0 ;
+shock tfd("Gas","Information","EST") = 10.0 ;
+shock tfd("Gas","Information","FIN") = 10.0 ;
+shock tfd("Gas","Information","FRA") = 10.0 ;
+shock tfd("Gas","Information","DEU") = 10.0 ;
+shock tfd("Gas","Information","GRC") = 10.0 ;
+shock tfd("Gas","Information","HUN") = 10.0 ;
+shock tfd("Gas","Information","IRL") = 10.0 ;
+shock tfd("Gas","Information","ITA") = 10.0 ;
+shock tfd("Gas","Information","LVA") = 10.0 ;
+shock tfd("Gas","Information","LTU") = 10.0 ;
+shock tfd("Gas","Information","LUX") = 10.0 ;
+shock tfd("Gas","Information","MLT") = 10.0 ;
+shock tfd("Gas","Information","NLD") = 10.0 ;
+shock tfd("Gas","Information","POL") = 10.0 ;
+shock tfd("Gas","Information","PRT") = 10.0 ;
+shock tfd("Gas","Information","ROU") = 10.0 ;
+shock tfd("Gas","Information","SVK") = 10.0 ;
+shock tfd("Gas","Information","SVN") = 10.0 ;
+shock tfd("Gas","Information","ESP") = 10.0 ;
+shock tfd("Gas","Information","SWE") = 10.0 ;
+
+! --- Major non-EU datacenter hubs ---
+! USA
+shock tfd("Electricity","Information","USA") = 10.0 ;
+shock tfm("Electricity","Information","USA") = 10.0 ;
+shock tfd("Oil_Pcts","Information","USA") = 10.0 ;
+shock tfd("Gas","Information","USA") = 10.0 ;
+
+! Singapore
+shock tfd("Electricity","Information","SGP") = 10.0 ;
+shock tfm("Electricity","Information","SGP") = 10.0 ;
+shock tfd("Oil_Pcts","Information","SGP") = 10.0 ;
+shock tfd("Gas","Information","SGP") = 10.0 ;
+
+! Japan
+shock tfd("Electricity","Information","JPN") = 10.0 ;
+shock tfm("Electricity","Information","JPN") = 10.0 ;
+shock tfd("Oil_Pcts","Information","JPN") = 10.0 ;
+shock tfd("Gas","Information","JPN") = 10.0 ;
+
+! Australia
+shock tfd("Electricity","Information","AUS") = 10.0 ;
+shock tfm("Electricity","Information","AUS") = 10.0 ;
+shock tfd("Oil_Pcts","Information","AUS") = 10.0 ;
+shock tfd("Gas","Information","AUS") = 10.0 ;
+
+! Great Britain
+shock tfd("Electricity","Information","GBR") = 10.0 ;
+shock tfm("Electricity","Information","GBR") = 10.0 ;
+shock tfd("Oil_Pcts","Information","GBR") = 10.0 ;
+shock tfd("Gas","Information","GBR") = 10.0 ;
+
+! --- Crypto-to-datacenter countries (new) ---
+! Canada
+shock tfd("Electricity","Information","CAN") = 10.0 ;
+shock tfm("Electricity","Information","CAN") = 10.0 ;
+shock tfd("Oil_Pcts","Information","CAN") = 10.0 ;
+shock tfd("Gas","Information","CAN") = 10.0 ;
+
+! Russia
+shock tfd("Electricity","Information","RUS") = 10.0 ;
+shock tfm("Electricity","Information","RUS") = 10.0 ;
+shock tfd("Oil_Pcts","Information","RUS") = 10.0 ;
+shock tfd("Gas","Information","RUS") = 10.0 ;
+
+! Norway (major crypto mining / cheap hydro)
+shock tfd("Electricity","Information","NOR") = 10.0 ;
+shock tfm("Electricity","Information","NOR") = 10.0 ;
+shock tfd("Oil_Pcts","Information","NOR") = 10.0 ;
+shock tfd("Gas","Information","NOR") = 10.0 ;
+
+log file = yes ;
